@@ -127,6 +127,7 @@ void gpio_irq_handler(uint gpio, uint32_t events){
         sleep_ms(40); // Debouncing simples
         estado_LED_verde = !estado_LED_verde;
         gpio_put(LED_verde, estado_LED_verde);
+        espessura = !espessura;
     }
     
     if(gpio_get(botao_Joystick) == 1 && gpio_get(botao_A) == 0){
@@ -146,6 +147,5 @@ void gpio_irq_handler(uint gpio, uint32_t events){
             pwm_set_enabled(slice_azul, false);
             pwm_set_enabled(slice_vermelho, false);
         }
-        espessura = !espessura;
     }
 }
